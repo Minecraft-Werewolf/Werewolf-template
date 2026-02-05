@@ -1,4 +1,8 @@
-import type { GameEventContext } from "../@modules/game-manager/game/ingame/game/GameManager";
+import {
+    registerSecondUpdateHandler,
+    registerTickUpdateHandler,
+} from "../internal/definitionRegistryBridge";
+import type { GameEventContext } from "@mc-werewolf/game-engine";
 
 export const onTickUpdate = (ev: GameEventContext): void => {
     const { playerData, playersData, ingameConstants } = ev;
@@ -7,3 +11,6 @@ export const onTickUpdate = (ev: GameEventContext): void => {
 export const onSecondUpdate = (ev: GameEventContext): void => {
     const { playerData, playersData, ingameConstants } = ev;
 };
+
+registerTickUpdateHandler(onTickUpdate);
+registerSecondUpdateHandler(onSecondUpdate);

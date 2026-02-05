@@ -1,19 +1,19 @@
-import "./werewolf/events/EntityHurt";
-
-import { Kairo } from "./@core/kairo";
-import { SystemManager } from "./@modules/game-manager/game/SystemManager";
-import type { KairoCommand, KairoResponse } from "./@core/kairo/utils/KairoUtils";
+import { Kairo, type KairoCommand, type KairoResponse } from "@kairo-ts/router";
+import { SystemManager } from "@mc-werewolf/game-engine";
+import { properties } from "./properties";
+import { loadWerewolfDefinitionModules } from "./internal/definitionRegistryBridge";
 
 async function main(): Promise<void> {
-    Kairo.init(); // client
+    Kairo.init(properties);
 }
 
-Kairo.onActivate = () => {
+Kairo.onActivate = async () => {
     /**
      * ここにアドオン有効化時の初期化処理を書く
      * Write the initialization logic executed when the addon becomes active
      */
 
+    await loadWerewolfDefinitionModules();
     SystemManager.getInstance().subscribeEvents();
     SystemManager.getInstance().init();
 };

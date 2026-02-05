@@ -10,12 +10,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git@github.com:Minecraft-Werewolf/Werewolf-VanillaPack.git"
+        "url": "git@github.com:Minecraft-Werewolf/Werewolf-template.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "@kairo-ts/router": "^0.1.3",
+        "@mc-werewolf/game-engine": "^0.1.0",
         "@minecraft/server": "^2.4.0",
         "@minecraft/server-ui": "^2.0.0",
         "@minecraft/vanilla-data": "^1.21.131",
