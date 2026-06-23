@@ -7,7 +7,7 @@ const UUID_STORE_FILE = ".uuid.json";
 const VERSION_STORE_FILE = ".manifest-version.json";
 
 const DEFAULT_BP_DEPENDENCIES = {
-    "@minecraft/server": "2.4.0",
+    "@minecraft/server": "2.8.0",
     "@minecraft/server-ui": "2.0.0",
 };
 
@@ -116,7 +116,7 @@ function buildCommon(header, metadata, version, kairoVersion) {
             name: `${header.name} - v${toDisplayVersionString(header.version)}`,
             description: header.description,
             version: toVersionString(version),
-            min_engine_version: header.min_engine_version,
+            min_engine_version: toManifestTriple(header.min_engine_version),
         },
     };
 }
