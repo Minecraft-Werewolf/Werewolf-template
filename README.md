@@ -1,8 +1,6 @@
-# Werewolf Template
+# Kairo Template
 
-Starter template for Minecraft Bedrock Werewolf addons using `@kairo-js/router`.
-
-This template intentionally does not depend on a werewolf module yet. It only prepares a modern kairo-router addon environment.
+Starter template for Minecraft Bedrock addons using `@kairo-js/router`.
 
 ## Requirements
 
@@ -15,6 +13,7 @@ This template intentionally does not depend on a werewolf module yet. It only pr
 
 ```bash
 pnpm install
+pnpm run init
 ```
 
 Edit `src/properties.ts`:
@@ -40,12 +39,14 @@ Use `router.beforeEvents.startup` for registration-time declarations:
 
 ```ts
 router.beforeEvents.startup.subscribe((ev) => {
-    ev.addonApi.register("werewolf/hello", () => undefined);
+    ev.addonApi.register("template/hello", () => undefined);
 });
 ```
 
-Use `router.afterEvents.addonActivate` as the safe point for world logic.
+Use `router.afterEvents.addonActivate` as the safe point for world logic:
 
-## Release
-
-Pushing a tag that starts with `v` runs `.github/workflows/release.yml`. The release workflow builds with `pnpm run build:ci` and uploads `.mcaddon` / `.zip` artifacts.
+```ts
+router.afterEvents.addonActivate.subscribe(() => {
+    // world APIs are safe here
+});
+```

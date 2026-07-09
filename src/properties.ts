@@ -1,13 +1,13 @@
 import type { AddonProperties } from "@kairo-js/properties";
 
 export const properties: AddonProperties = {
-    id: "werewolf-template",
+    id: "kairo-template",
     metadata: {
         authors: [],
     },
     header: {
-        name: "Werewolf Template",
-        description: "A starter template for Minecraft Bedrock Werewolf addons using kairo-router.",
+        name: "Kairo Template",
+        description: "A starter template for Minecraft Bedrock addons using kairo-router.",
         version: {
             major: 1,
             minor: 0,

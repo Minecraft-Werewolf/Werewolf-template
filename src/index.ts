@@ -3,7 +3,7 @@ import { router } from "@kairo-js/router";
 import { properties } from "./properties";
 
 router.beforeEvents.startup.subscribe((ev) => {
-    ev.addonApi.register<{ message: string }, void>("werewolf/announce", ({ message }, ctx) => {
+    ev.addonApi.register<{ message: string }, void>("template/announce", ({ message }, ctx) => {
         world.sendMessage(`[${ctx.callerAddonId}] ${message}`);
     });
 });
