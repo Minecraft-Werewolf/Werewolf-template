@@ -16,6 +16,8 @@ pnpm install
 pnpm run init
 ```
 
+`init` writes the shared project files such as `.gitignore`, `.prettierrc`, `.vscode/`, and `tsconfig.json`.
+
 Edit `src/properties.ts`:
 
 - `id`
